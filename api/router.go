@@ -15,4 +15,6 @@ func Router(app *fiber.App) {
 	r.Post("/api/auth/login", HandleLoginUser)
 
 	r.Get("/api/user", HandleRequireAuth, HandleGetUser)
+
+	r.Post("/api/wishlists", HandleRequireAuth, HandleCreateWishlist)
 }
