@@ -23,5 +23,13 @@ func HandleLoginUser(c *fiber.Ctx) error {
 		return MakeApiValidationError("password", "Incorrect password")
 	}
 
-	return c.JSON(user)
+	accessToken, refreshToken, err := GenerateBothTokens(user.ID)
+	if err != nil {
+		return MakeApiError(500, err.Error())
+	}
+
+	return c.JSON(&AuthResponse{
+		AccessToken:  accessToken,
+		RefreshToken: refreshToken,
+	})
 }

@@ -39,7 +39,13 @@ func HandleRegisterUser(c *fiber.Ctx) error {
 		return MakeApiError(500, tx.Error.Error())
 	}
 
-	// TODO: generate jwt tokens here and send them in response
+	accessToken, refreshToken, err := GenerateBothTokens(user.ID)
+	if err != nil {
+		return MakeApiError(500, err.Error())
+	}
 
-	return c.Status(201).JSON(user)
+	return c.Status(201).JSON(&AuthResponse{
+		AccessToken:  accessToken,
+		RefreshToken: refreshToken,
+	})
 }
