@@ -17,7 +17,7 @@ func ConnectDatabase() (err error) {
 		return
 	}
 
-	err = Db.AutoMigrate(&User{})
+	err = Db.AutoMigrate(&User{}, &Wishlist{}, &Product{})
 
 	return
 }
