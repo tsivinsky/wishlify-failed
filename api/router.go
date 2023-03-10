@@ -10,4 +10,9 @@ func Router(app *fiber.App) {
 			"message": "Hello, World!",
 		})
 	})
+
+	r.Post("/api/auth/register", HandleRegisterUser)
+	r.Post("/api/auth/login", HandleLoginUser)
+
+	r.Get("/api/user", HandleRequireAuth, HandleGetUser)
 }
