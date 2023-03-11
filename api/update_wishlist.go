@@ -1,10 +1,12 @@
 package main
 
-import "github.com/gofiber/fiber/v2"
+import (
+	"github.com/gofiber/fiber/v2"
+)
 
 type UpdateWishlistBody struct {
-	Name        string `json:"name"`
-	Description string `json:"description"`
+	Name        *string `json:"name"`
+	Description *string `json:"description"`
 }
 
 func HandleUpdateWishlist(c *fiber.Ctx) error {
@@ -24,18 +26,18 @@ func HandleUpdateWishlist(c *fiber.Ctx) error {
 		return MakeApiError(404, err.Error())
 	}
 
-	if body.Name != "" {
-		newDisplayName := GenerateWishlistDisplayName(body.Name)
+	if body.Name != nil {
+		newDisplayName := GenerateWishlistDisplayName(*body.Name)
 		if tx := Db.Where("display_name = ?", newDisplayName).First(&Wishlist{}); tx.RowsAffected > 0 {
 			return MakeApiValidationError("name", "Name already taken")
 		}
 
-		wishlist.Name = body.Name
+		wishlist.Name = *body.Name
 		wishlist.DisplayName = newDisplayName
 	}
 
-	if body.Description != "" {
-		wishlist.Description = body.Description
+	if body.Description != nil {
+		wishlist.Description = *body.Description
 	}
 
 	if tx := Db.Save(&wishlist); tx.Error != nil {
