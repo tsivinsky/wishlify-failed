@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 
 	"github.com/gofiber/fiber/v2"
@@ -22,6 +23,10 @@ func main() {
 
 	app := fiber.New(fiber.Config{
 		ErrorHandler: ErrorHandler,
+	})
+
+	app.Static(fmt.Sprintf("/%s", StaticDirectory), StaticDirectory, fiber.Static{
+		Browse: false,
 	})
 
 	app.Use(cors.New())

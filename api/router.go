@@ -25,4 +25,6 @@ func Router(app *fiber.App) {
 	r.Post("/api/wishlists/:id/products", HandleRequireAuth, HandleAddProduct)
 	r.Patch("/api/wishlists/:wishlistId/products/:productId", HandleRequireAuth, HandleUpdateProduct)
 	r.Delete("/api/wishlists/:wishlistId/products/:productId", HandleRequireAuth, HandleRemoveProduct)
+
+	r.Post("/api/images", HandleUploadImages)
 }
