@@ -60,6 +60,8 @@ github.com/stretchr/testify v1.8.1 h1:w7B6lhMri9wdJUVmEZPGGhZzrYTPvgJArz7wNPgYKs
 github.com/stretchr/testify v1.8.1/go.mod h1:w2LPCIKwWwSfY2zedu0+kehJoqGctiVI29o6fzry7u4=
 github.com/tinylib/msgp v1.1.6 h1:i+SbKraHhnrf9M5MYmvQhFnbLhAXSDWF8WWsuyRdocw=
 github.com/tinylib/msgp v1.1.6/go.mod h1:75BAfg2hauQhs3qedfdDZmWAPcFMAvJE5b9rGOMufyw=
+github.com/tsivinsky/array v0.4.0 h1:2MxfVA0I6QCahjUvAvq0EtBjDioOq1GxRdWDeNQ/bHc=
+github.com/tsivinsky/array v0.4.0/go.mod h1:qyyqb6kYJNYl06Ej/IVbAxef3xxySS1Zjj1Sy4fpcro=
 github.com/tsivinsky/goenv v0.0.0-20230206135211-6d2e656254ec h1:pyeovjJBMCHbg2vP7+QoNDSuA+yz41Xn0K6oaraR0do=
 github.com/tsivinsky/goenv v0.0.0-20230206135211-6d2e656254ec/go.mod h1:Ws3APpSMvQPg50RGBPDHwAP3fU6/RM/IyncdnfKRFiE=
 github.com/valyala/bytebufferpool v1.0.0 h1:GqA5TC/0021Y/b9FG4Oi9Mr3q7XYx6KllzawFIhcdPw=
