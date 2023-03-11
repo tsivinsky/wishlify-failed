@@ -15,4 +15,14 @@ func Router(app *fiber.App) {
 	r.Post("/api/auth/login", HandleLoginUser)
 
 	r.Get("/api/user", HandleRequireAuth, HandleGetUser)
+
+	r.Get("/api/wishlists", HandleRequireAuth, HandleGetUserWishlists)
+	r.Post("/api/wishlists", HandleRequireAuth, HandleCreateWishlist)
+	r.Get("/api/wishlists/:id", HandleRequireAuth, HandleGetWishlistById)
+	r.Patch("/api/wishlists/:id", HandleRequireAuth, HandleUpdateWishlist)
+	r.Delete("/api/wishlists/:id", HandleRequireAuth, HandleDeleteWishlist)
+
+	r.Post("/api/wishlists/:id/products", HandleRequireAuth, HandleAddProduct)
+	r.Patch("/api/wishlists/:wishlistId/products/:productId", HandleRequireAuth, HandleUpdateProduct)
+	r.Delete("/api/wishlists/:wishlistId/products/:productId", HandleRequireAuth, HandleRemoveProduct)
 }
