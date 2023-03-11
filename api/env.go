@@ -8,3 +8,5 @@ type env struct {
 }
 
 var Env = new(env)
+
+const StaticDirectory = "static"
